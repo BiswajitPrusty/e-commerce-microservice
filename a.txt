@@ -1,6 +1,2 @@
 
-biswa 
-jit 
-prus
-ty
-
+hello world
