@@ -10,7 +10,7 @@ create table if not exists product
     id                 integer not null primary key,
     description        varchar(255),
     name               varchar(255),
-    available_quantity double precision not null,
+    quantity double precision not null,
     price              numeric(38, 2),
     category_id integer constraint fkcategory references category
 );

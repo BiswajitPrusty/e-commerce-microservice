@@ -11,20 +11,25 @@ import java.util.List;
 @RequestMapping("/api/v1/orders")
 @RequiredArgsConstructor
 public class OrderController {
-    private final OrderService service;
 
-    @PostMapping
-    public ResponseEntity<Integer> createOrder(@RequestBody @Valid OrderRequest request) {
-        return ResponseEntity.ok(service.createOrder(request));
-    }
+  private final OrderService service;
 
-    @GetMapping
-    public ResponseEntity<List<OrderResponse>> findAll() {
-        return ResponseEntity.ok(service.findAll());
-    }
+  @PostMapping
+  public ResponseEntity<Integer> createOrder(
+      @RequestBody @Valid OrderRequest request
+  ) {
+    return ResponseEntity.ok(this.service.createOrder(request));
+  }
 
-    @GetMapping("/{order-id}")
-    public ResponseEntity<OrderResponse> findById(@PathVariable("order-id") Integer orderId) {
-        return ResponseEntity.ok(service.findById(orderId));
-    }
+  @GetMapping
+  public ResponseEntity<List<OrderResponse>> findAll() {
+    return ResponseEntity.ok(this.service.findAllOrders());
+  }
+
+  @GetMapping("/{order-id}")
+  public ResponseEntity<OrderResponse> findById(
+      @PathVariable("order-id") Integer orderId
+  ) {
+    return ResponseEntity.ok(this.service.findById(orderId));
+  }
 }

@@ -10,6 +10,6 @@ public class ProductPurchaseResponse {
     private Integer id;
     private String name;
     private String description;
-    private double availableQuantity;
+    private double quantity;
     private BigDecimal price;
 }

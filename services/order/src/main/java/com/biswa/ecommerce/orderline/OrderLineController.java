@@ -1,5 +1,6 @@
 package com.biswa.ecommerce.orderline;
 
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +18,9 @@ public class OrderLineController {
     private final OrderLineService service;
 
     @GetMapping("/order/{order-id}")
-    public ResponseEntity<List<OrderLineResponse>> getOrderLine(@PathVariable("order-id") Integer orderId) {
-        return ResponseEntity.ok(service.findAllByOrderById(orderId));
+    public ResponseEntity<List<OrderLineResponse>> findByOrderId(
+            @PathVariable("order-id") Integer orderId
+    ) {
+        return ResponseEntity.ok(service.findAllByOrderId(orderId));
     }
 }
